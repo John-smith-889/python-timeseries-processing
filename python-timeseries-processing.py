@@ -27,3 +27,30 @@ dti = pd.date_range('2020-01-01', periods=rows, freq='D')
 
 df_01 = pd.DataFrame(dict_01, index=dti) # index arg is optional
 df_01
+
+
+#=============================#
+# Select rows between 2 dates # use strings
+#=============================#
+
+df_01
+start_date = '2020-01-01'
+end_date = '2020-01-02'
+df_01.loc[start_date : end_date] # (closed interval)
+
+
+#=============================#
+# Select rows between 2 dates # use datatime objects
+#=============================#
+# (closed interval)
+
+import datetime
+
+# Create datetime object from string
+start_date = '2020-01-01'
+start_date_datatime = datetime.datetime.strptime(start_date, '%Y-%m-%d')
+end_date = '2020-01-02'
+end_date_datatime = datetime.datetime.strptime(end_date, '%Y-%m-%d')
+
+# select rows with 
+df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
