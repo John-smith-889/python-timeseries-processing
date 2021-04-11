@@ -54,3 +54,12 @@ end_date_datatime = datetime.datetime.strptime(end_date, '%Y-%m-%d')
 
 # select rows with 
 df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
+
+
+#==================#
+# Rows subtraction #
+#==================#
+
+# Compute differance between '0' row and '3' row and insert result to '3' row
+df_01.diff(3)
+
