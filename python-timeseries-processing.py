@@ -63,3 +63,17 @@ df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
 # Compute differance between '0' row and '3' row and insert result to '3' row
 df_01.diff(3)
 
+
+#================================#
+# The percent change computation #
+#================================#
+# aka C-RET - Cumulative Return Value (for ascending order timeseries)
+df_01.pct_change(1)
+
+#or (for ascending order timeseries)
+(df_01 - df_01.shift(1) ) / df_01.shift(1)
+#or
+(df_01 / df_01.shift(1) ) - 1
+
+#or (for descending order timeseries)
+(df_01.shift(1) / df_01) - 1
