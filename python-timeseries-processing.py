@@ -77,3 +77,13 @@ df_01.pct_change(1)
 
 #or (for descending order timeseries)
 (df_01.shift(1) / df_01) - 1
+
+
+#====================================#
+# Sort columns by certain row values #
+#====================================#
+
+# sort columns by value in choosen row
+df_01.sort_values(by='2020-01-04', axis=1, ascending=False)
+
+
