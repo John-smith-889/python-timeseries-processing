@@ -86,4 +86,10 @@ df_01.pct_change(1)
 # sort columns by value in choosen row
 df_01.sort_values(by='2020-01-04', axis=1, ascending=False)
 
+# sort columns by value in the table with only 1 row
+start_date = '2020-01-02'
+end_date = '2020-01-02'
+df_01.loc[start_date : end_date].sort_values(by=df_01 \
+         .loc[start_date : end_date].index[0], axis=1, ascending=False)
+
 
