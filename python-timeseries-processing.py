@@ -83,13 +83,21 @@ df_01.pct_change(1)
 # Sort columns by certain row values #
 #====================================#
 
+# Creating the dataframe  
+rows = 4
+dict_02 = {'A': [1, 2, 3, 4],
+           'B': [2, 4, 6, 8], 
+           'C': [10, 20, 30, 40]}
+DateTimeIndex_02 = pd.date_range('2020-01-01', periods=rows, freq='D') 
+df_02 = pd.DataFrame(dict_02, index=dti) # index arg is optional
+df_02
+
 # sort columns by value in choosen row
-df_01.sort_values(by='2020-01-04', axis=1, ascending=False)
+df_02.sort_values(by='2020-01-04', axis=1, ascending=False)
 
 # sort columns by value in the table with only 1 row
 start_date = '2020-01-02'
 end_date = '2020-01-02'
-df_01.loc[start_date : end_date].sort_values(by=df_01 \
+df_02.loc[start_date : end_date].sort_values(by=df_01 \
          .loc[start_date : end_date].index[0], axis=1, ascending=False)
-
 
