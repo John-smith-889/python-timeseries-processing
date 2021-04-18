@@ -68,6 +68,9 @@ df_01.diff(3)
 # The percent change computation #
 #================================#
 # aka C-RET - Cumulative Return Value (for ascending order timeseries)
+# Note: pct change use shift under the hood, and shift use much computation
+#   resources because it shifts the whole df instead of using 
+#   first and last values
 df_01.pct_change(1)
 
 #or (for ascending order timeseries)
