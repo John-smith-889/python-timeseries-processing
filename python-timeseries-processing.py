@@ -15,17 +15,17 @@ date_time_obj = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
 
 import pandas as pd
 
-rows = 4
+rows_01 = 4
 
 dict_01 = {'A': [1, 2, 3, 4],
            'B': [2, 4, 6, 8], 
            'C': [10, 20, 30, 40]}
 
 # Create DateTimeIndex
-dti = pd.date_range('2020-01-01', periods=rows, freq='D') 
-# freq='MS'set the frequency in months 
+dti_01 = pd.date_range('2020-01-01', periods=rows_01, freq='D') 
 
-df_01 = pd.DataFrame(dict_01, index=dti) # index arg is optional
+# freq='MS'set the frequency in months 
+df_01 = pd.DataFrame(dict_01, index=dti_01) # index arg is optional
 df_01
 
 
@@ -34,9 +34,9 @@ df_01
 #=============================#
 
 df_01
-start_date = '2020-01-01'
-end_date = '2020-01-02'
-df_01.loc[start_date : end_date] # (closed interval)
+start_date_01 = '2020-01-01'
+end_date_01 = '2020-01-02'
+df_01.loc[start_date_01 : end_date_01] # (closed interval)
 
 
 #=============================#
@@ -47,10 +47,10 @@ df_01.loc[start_date : end_date] # (closed interval)
 import datetime
 
 # Create datetime object from string
-start_date = '2020-01-01'
-start_date_datatime = datetime.datetime.strptime(start_date, '%Y-%m-%d')
-end_date = '2020-01-02'
-end_date_datatime = datetime.datetime.strptime(end_date, '%Y-%m-%d')
+start_date_02 = '2020-01-01'
+start_date_datatime = datetime.datetime.strptime(start_date_02, '%Y-%m-%d')
+end_date_02 = '2020-01-02'
+end_date_datatime = datetime.datetime.strptime(end_date_02, '%Y-%m-%d')
 
 # select rows with 
 df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
@@ -85,14 +85,15 @@ df_01.pct_change(1)
 #====================================#
 # Sort columns by certain row values #
 #====================================#
+import pandas as pd
 
 # Creating the dataframe  
-rows = 4
+rows_02 = 4
 dict_02 = {'A': [1, 2, 3, 4],
            'B': [2, 4, 6, 8], 
            'C': [10, 20, 30, 40]}
-DateTimeIndex_02 = pd.date_range('2020-01-01', periods=rows, freq='D') 
-df_02 = pd.DataFrame(dict_02, index=dti) # index arg is optional
+dti_02 = pd.date_range('2020-01-01', periods=rows_02, freq='D') # DatetimeIndex
+df_02 = pd.DataFrame(dict_02, index=dti_02) # index arg is optional
 df_02
 
 # sort columns by value in choosen row
@@ -108,6 +109,7 @@ df_02.loc[start_date : end_date].sort_values(by=df_01 \
 #====================================#
 # get top fraction of sorted columns #
 #====================================#
+
 # (highest values on the left)
 fraction = 0.3
 cols = df_02.columns[: round(fraction * len(df_02.columns))]
