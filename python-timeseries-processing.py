@@ -104,3 +104,12 @@ end_date = '2020-01-02'
 df_02.loc[start_date : end_date].sort_values(by=df_01 \
          .loc[start_date : end_date].index[0], axis=1, ascending=False)
 
+
+#====================================#
+# get top fraction of sorted columns #
+#====================================#
+# (highest values on the left)
+fraction = 0.3
+cols = df_02.columns[: round(fraction * len(df_02.columns))]
+top_fraction = df_02[cols]
+
