@@ -115,3 +115,19 @@ fraction = 0.3
 cols = df_02.columns[: round(fraction * len(df_02.columns))]
 top_fraction = df_02[cols]
 
+
+#=============#
+# Sum columns #
+#=============#
+import pandas as pd
+
+# Creating the dataframe  
+rows_03 = 4
+dict_03 = {'A': [1, 2, 3, 4], 'B': [2, 4, 6, 8], 'C': [10, 20, 30, 40]}
+dti_03 = pd.date_range('2020-01-01', periods=rows_03, freq='D') 
+df_03 = pd.DataFrame(dict_03, index=dti_03) # index arg is optional
+df_03
+
+df_04 = df_03.sum(axis=1, skipna=True)
+df_04
+
