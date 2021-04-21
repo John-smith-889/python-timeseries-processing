@@ -131,3 +131,12 @@ df_03
 df_04 = df_03.sum(axis=1, skipna=True)
 df_04
 
+
+#====================================#
+# Normalize values to certain number #
+#====================================#
+# Normalize values to first value as a certain number 
+
+number = 100
+(df_04/df_04[0])*number
+
