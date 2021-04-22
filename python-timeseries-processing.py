@@ -140,3 +140,24 @@ df_04
 number = 100
 (df_04/df_04[0])*number
 
+
+#============================#
+# Rolling window calculation #
+#============================#
+# moving average
+
+# Compute moving average for all columns
+df_03
+df_03.rolling(window = 2, win_type='triang').mean()
+# TODO why sum works like mean there?
+
+# Compute moving average for particular column
+df_03
+df_03.rolling(window = 2, win_type='triang')['A'].mean()
+
+# Add particular column with moving average
+import copy
+df_05 = copy.deepcopy(df_03)
+df_05['MA'] = df_03.rolling(window = 2, win_type='triang')['A'].mean()
+df_05
+
