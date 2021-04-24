@@ -161,3 +161,22 @@ df_05 = copy.deepcopy(df_03)
 df_05['MA'] = df_03.rolling(window = 2, win_type='triang')['A'].mean()
 df_05
 
+
+#=====================#
+# forward fill method #
+#=====================#
+# Fill NA 
+
+# importing pandas as pd 
+import pandas as pd 
+  
+# Creating the dataframe  
+df_06 = pd.DataFrame({"A":[5,3,None,4], 
+                     "B":[None,2,4,3], 
+                     "C":[4,3,8,5], 
+                     "D":[5,4,2,None]}) 
+df_06 
+
+# applying ffill() method to fill the missing values 
+df_06.ffill(axis = 0) 
+
