@@ -167,16 +167,23 @@ df_05
 #=====================#
 # Fill NA 
 
-# importing pandas as pd 
 import pandas as pd 
   
 # Creating the dataframe  
-df_06 = pd.DataFrame({"A":[5,3,None,4], 
-                     "B":[None,2,4,3], 
-                     "C":[4,3,8,5], 
-                     "D":[5,4,2,None]}) 
-df_06 
+rows_07 = 4
+dict_07 = {'A': [1, 2, None, 4],
+           'B': [None, 4, 6, 8], 
+           'C': [10, 20, 30, None]}
+DateTimeIndex_07 = pd.date_range('2020-01-01', periods=rows_07, freq='D') 
+df_07 = pd.DataFrame(dict_07, index=DateTimeIndex_07)  # index arg is optional
+df_07 
 
-# applying ffill() method to fill the missing values 
-df_06.ffill(axis = 0) 
+# applying forward fill method to fill the missing values 
+df_07.ffill(axis = 0) 
+# apply forward fill and backwardfill in case of some 
+df_07.ffill(axis = 0).bfill(axis = 0)
+
+# pct_change with forward fill method as parameter
+day_07 = 1
+df_07.pct_change(fill_method='ffill', periods=day_07)
 
