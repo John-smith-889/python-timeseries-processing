@@ -1,4 +1,8 @@
 
+"""
+The file contains methods' applications useful for timeseries processing.
+"""
+
 #==================#
 # datetime objects #
 #==================#
