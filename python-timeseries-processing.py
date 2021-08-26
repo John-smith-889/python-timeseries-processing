@@ -3,6 +3,10 @@
 The file contains methods' applications useful for timeseries processing.
 """
 
+#=============================================================================#
+# Operations using dates #
+#========================#
+
 #==================#
 # datetime objects #
 #==================#
@@ -60,6 +64,10 @@ end_date_datatime = datetime.datetime.strptime(end_date_02, '%Y-%m-%d')
 df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
 
 
+#=============================================================================#
+# Operations across rows #
+#========================#
+
 #==================#
 # Rows subtraction #
 #==================#
@@ -85,6 +93,30 @@ df_01.pct_change(1)
 #or (for descending order timeseries)
 (df_01.shift(1) / df_01) - 1
 
+#============================#
+# Rolling window calculation #
+#============================#
+# moving average
+
+# Compute moving average for all columns
+df_01.rolling(window = 2, win_type='triang').mean()
+# TODO why sum works like mean there?
+
+# Compute moving average for particular column
+df_01.rolling(window = 2, win_type='triang')['A'].mean()
+
+# Add particular column with moving average
+import copy
+df_05 = copy.deepcopy(df_01)
+df_05['MA'] = df_01.rolling(window = 2, win_type='triang')['A'].mean()
+df_05
+
+
+
+
+#=============================================================================#
+# Operations across columns #
+#===========================#
 
 #====================================#
 # Sort columns by certain row values #
@@ -145,26 +177,9 @@ number = 100
 (df_04/df_04[0])*number
 
 
-#============================#
-# Rolling window calculation #
-#============================#
-# moving average
-
-# Compute moving average for all columns
-df_03
-df_03.rolling(window = 2, win_type='triang').mean()
-# TODO why sum works like mean there?
-
-# Compute moving average for particular column
-df_03
-df_03.rolling(window = 2, win_type='triang')['A'].mean()
-
-# Add particular column with moving average
-import copy
-df_05 = copy.deepcopy(df_03)
-df_05['MA'] = df_03.rolling(window = 2, win_type='triang')['A'].mean()
-df_05
-
+#=============================================================================#
+# None handing #
+#==============#
 
 #=====================#
 # forward fill method #
