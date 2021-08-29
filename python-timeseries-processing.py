@@ -17,6 +17,15 @@ date_time_str = '18/09/93'
 date_time_obj = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
 
 
+
+#==========================#
+# DatetimeIndex generation #
+#==========================#
+
+import pandas as pd
+dti_01 = pd.date_range('2020-01-01', periods=4, freq='D') 
+
+
 #======================#
 # Generate random data #
 #======================#
