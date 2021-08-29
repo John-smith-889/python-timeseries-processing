@@ -64,6 +64,21 @@ end_date_datatime = datetime.datetime.strptime(end_date_02, '%Y-%m-%d')
 df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
 
 
+#==================#
+# Dates comparison #
+#==================#
+
+import datetime
+date_time_str = '18/09/94'
+date_time_obj = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
+
+import datetime
+date_time_str2 = '18/09/93'
+date_time_obj2 = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
+
+date_time_str2 > date_time_str
+
+
 #=============================================================================#
 # Operations across rows #
 #========================#
@@ -178,8 +193,8 @@ number = 100
 
 
 #=============================================================================#
-# None handing #
-#==============#
+# Missing data handling #
+#=======================#
 
 #=====================#
 # forward fill method #
