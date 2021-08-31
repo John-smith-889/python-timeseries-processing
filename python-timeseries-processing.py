@@ -17,7 +17,6 @@ date_time_str = '18/09/93'
 date_time_obj = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
 
 
-
 #==========================#
 # DatetimeIndex generation #
 #==========================#
@@ -49,11 +48,10 @@ df_01
 #=============================#
 # Select rows between 2 dates # use strings
 #=============================#
+# (closed interval)
 
 df_01
-start_date_01 = '2020-01-01'
-end_date_01 = '2020-01-02'
-df_01.loc[start_date_01 : end_date_01] # (closed interval)
+df_01.loc['2020-01-01' : '2020-01-02'] 
 
 
 #=============================#
@@ -64,10 +62,8 @@ df_01.loc[start_date_01 : end_date_01] # (closed interval)
 import datetime
 
 # Create datetime object from string
-start_date_02 = '2020-01-01'
-start_date_datatime = datetime.datetime.strptime(start_date_02, '%Y-%m-%d')
-end_date_02 = '2020-01-02'
-end_date_datatime = datetime.datetime.strptime(end_date_02, '%Y-%m-%d')
+start_date_datatime = datetime.datetime.strptime('2020-01-01','%Y-%m-%d')
+end_date_datatime = datetime.datetime.strptime('2020-01-02','%Y-%m-%d')
 
 # select rows with 
 df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
@@ -78,15 +74,11 @@ df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
 #==================#
 
 import datetime
-date_time_str = '18/09/94'
-date_time_obj = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
+date_time_obj = datetime.datetime.strptime('18/09/94', '%d/%m/%y')
+date_time_obj2 = datetime.datetime.strptime('18/09/93', '%d/%m/%y')
 
-import datetime
-date_time_str2 = '18/09/93'
-date_time_obj2 = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
-
-date_time_str2 > date_time_str
-
+# Compare dates
+date_time_obj > date_time_obj2
 
 #=============================================================================#
 # Operations across rows #
