@@ -11,10 +11,18 @@ The file contains methods' applications useful for timeseries processing.
 # datetime objects #
 #==================#
 
-# Create datetime object from string
 import datetime
-date_time_str = '18/09/93'
-date_time_obj = datetime.datetime.strptime(date_time_str, '%d/%m/%y')
+
+# Create datetime object from integers
+datetime_obj = datetime.datetime(2019, 4, 13)
+datetime_obj
+
+# Create datetime object from string
+datetime_str = '18/09/93'
+datetime_obj_02 = datetime.datetime.strptime(datetime_str, '%d/%m/%y')
+
+# Get current time 
+datetime.datetime.now()
 
 
 #==========================#
