@@ -82,15 +82,23 @@ df_01.loc[start_date_datatime : end_date_datatime] # (closed interval)
 #==================#
 
 import datetime
-date_time_obj = datetime.datetime.strptime('18/09/94', '%d/%m/%y')
-date_time_obj2 = datetime.datetime.strptime('18/09/93', '%d/%m/%y')
+datetime_obj = datetime.datetime.strptime('18/09/94', '%d/%m/%y')
+datetime_obj2 = datetime.datetime.strptime('18/09/93', '%d/%m/%y')
 
 # Compare dates
-date_time_obj > date_time_obj2
+datetime_obj > datetime_obj2
 
 #=============================================================================#
 # Operations across rows #
 #========================#
+
+import pandas as pd
+dict_01 = {'A': [1, 2, 3, 4],
+           'B': [2, 4, 6, 8], 
+           'C': [10, 20, 30, 40]}
+dti_01 = pd.date_range('2020-01-01', periods=4, freq='D') 
+df_01 = pd.DataFrame(dict_01, index=dti_01)
+df_01
 
 #==================#
 # Rows subtraction #
@@ -131,10 +139,9 @@ df_01.rolling(window = 2, win_type='triang')['A'].mean()
 
 # Add particular column with moving average
 import copy
-df_05 = copy.deepcopy(df_01)
-df_05['MA'] = df_01.rolling(window = 2, win_type='triang')['A'].mean()
-df_05
-
+df_mow_avg = copy.deepcopy(df_01)
+df_mow_avg['MA'] = df_mow_avg.rolling(window = 2, win_type='triang')['A'].mean()
+df_mow_avg
 
 
 
@@ -145,24 +152,24 @@ df_05
 #====================================#
 # Sort columns by certain row values #
 #====================================#
-import pandas as pd
 
 # Creating the dataframe  
-rows_02 = 4
-dict_02 = {'A': [1, 2, 3, 4],
+import pandas as pd
+dict_01 = {'A': [1, 2, 3, 4],
            'B': [2, 4, 6, 8], 
            'C': [10, 20, 30, 40]}
-dti_02 = pd.date_range('2020-01-01', periods=rows_02, freq='D') # DatetimeIndex
-df_02 = pd.DataFrame(dict_02, index=dti_02) # index arg is optional
-df_02
+dti_01 = pd.date_range('2020-01-01', periods=4, freq='D') 
+df_01 = pd.DataFrame(dict_01, index=dti_01)
+df_01
+
 
 # sort columns by value in choosen row
-df_02.sort_values(by='2020-01-04', axis=1, ascending=False)
+df_01.sort_values(by='2020-01-04', axis=1, ascending=False)
 
 # sort columns by value in the table with only 1 row
 start_date = '2020-01-02'
 end_date = '2020-01-02'
-df_02.loc[start_date : end_date].sort_values(by=df_01 \
+df_01.loc[start_date : end_date].sort_values(by=df_01 \
          .loc[start_date : end_date].index[0], axis=1, ascending=False)
 
 
@@ -172,8 +179,8 @@ df_02.loc[start_date : end_date].sort_values(by=df_01 \
 
 # (highest values on the left)
 fraction = 0.3
-cols = df_02.columns[: round(fraction * len(df_02.columns))]
-top_fraction = df_02[cols]
+cols = df_01.columns[: round(fraction * len(df_01.columns))]
+top_fraction = df_01[cols]
 
 
 #=============#
