@@ -215,8 +215,8 @@ number = 100
 # Create dataframe  
 import pandas as pd 
 dict_02 = {'A': [1, 2, None, 4],
-           'B': [None, 4, 6, 8], 
-           'C': [10, 20, 30, None]}
+           'B': [None, None, 6, 8], 
+           'C': [None, None, None, None]}
 DateTimeIndex_02 = pd.date_range('2020-01-01', periods=4, freq='D') 
 df_02 = pd.DataFrame(dict_02, index=DateTimeIndex_02)  # index arg is optional
 df_02 
@@ -247,4 +247,21 @@ df_02.isna().all().sum()
 #========================================#
 
 df_02.isna().any()
+
+
+#=======================================#
+# drop columns where all column is NaNs #
+#=======================================#
+        
+df_02.dropna(axis=1, how='all')
+
+
+#==============================================#
+# drop columns where are below 2 non-NA values #
+#==============================================#
+        
+df_02.dropna(axis=1, thresh=2)
+
+
+
 
