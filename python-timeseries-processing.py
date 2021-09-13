@@ -88,6 +88,19 @@ datetime_obj2 = datetime.datetime.strptime('18/09/93', '%d/%m/%y')
 # Compare dates
 datetime_obj > datetime_obj2
 
+
+#============================================#
+# Assign value to certain series index value #
+#============================================#
+
+import pandas as pd
+list_01 = [1, 2, 3, 4]
+dti_01 = pd.date_range('2020-01-01', periods=4, freq='D') 
+series_01 = pd.Series(list_01, index=dti_01) # index arg is optional
+
+series_01.loc['2020-01-03'] = 10
+
+
 #=============================================================================#
 # Operations across rows #
 #========================#
