@@ -248,6 +248,12 @@ df_02.ffill(axis = 0).bfill(axis = 0)
 df_02.pct_change(fill_method='ffill', periods=1)
 
 
+#===================================#
+# take lastest value of each column #
+#===================================#
+
+df_02.ffill().tail(1)
+
 #=======================================#
 # Number of columns with all NaN values #
 #=======================================#
@@ -275,6 +281,9 @@ df_02.dropna(axis=1, how='all')
         
 df_02.dropna(axis=1, thresh=2)
 
+#======================#
+# Check if df is empty #
+#======================#
 
-
+df_02.empty
 
