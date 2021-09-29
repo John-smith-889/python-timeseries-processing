@@ -30,8 +30,11 @@ datetime.datetime.now()
 #==========================#
 
 import pandas as pd
-dti_01 = pd.date_range('2020-01-01', periods=4, freq='D') 
+dti_01 = pd.date_range(start='2020-01-01', periods=4, freq='D') 
+dti_01
 
+dti_02 = pd.date_range(start='2020-01-01', end='2020-07-08', freq='30D')
+dti_02
 
 #======================#
 # Generate random data #
