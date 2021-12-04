@@ -166,6 +166,37 @@ df_mow_avg['MA'] = df_mow_avg.rolling(window = 2, win_type='triang')['A'].mean()
 df_mow_avg
 
 
+#===================================================#
+# Select certain rows by index of another dataframe #
+#===================================================#
+# Get rows from df basing on index matching witch second df
+
+import pandas as pd
+rows_01 = 4
+dict_01 = {'A': [1, 2, 3, 4],
+           'B': [2, 4, 6, 8], 
+           'C': [10, 20, 30, 40]}
+# Create DateTimeIndex
+dti_01 = pd.date_range('2020-01-01', periods=rows_01, freq='D') 
+# freq='MS'set the frequency in months 
+df_01 = pd.DataFrame(dict_01, index=dti_01) # index arg is optional
+df_01
+
+
+
+rows_02 = 5
+dict_02 = {'A': [1, 2, 3, 4, 5],
+           'B': [2, 4, 6, 8, 5], 
+           'C': [10, 20, 30, 40, 5]}
+# Create DateTimeIndex
+dti_02 = pd.date_range('2020-01-03', periods=rows_02, freq='D') 
+# freq='MS'set the frequency in months 
+df_02 = pd.DataFrame(dict_02, index=dti_02) # index arg is optional
+df_02
+
+# select rows of df_02, if correspondend index values are in df_01 df
+df_02.loc[df_02.index.isin(df_01.index)]
+
 
 #=============================================================================#
 # Operations across columns #
